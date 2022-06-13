@@ -15,7 +15,7 @@ Full Stack Developer
 
 ##Intitial release
 - [GitHub Frontend](https://github.com/venskolev/matrixshop-frontend)
-- [GitHub Backend](https://github.com/OrhanKadirov/-matrixshop-backend)
+- [GitHub Backend](https://github.com/OrhanKadirov/matrixshop-backend)
 
 
 ## Use
