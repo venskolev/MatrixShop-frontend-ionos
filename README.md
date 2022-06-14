@@ -28,15 +28,7 @@ Full Stack Developer
   ```
 - for Express
   ```
-  npm install 
-  ```
-  npm i express
-  ```
-  npm i mongoose
-  ```
-  npm i nodemon
-  ```
-  npm i cors
+  npm install express mongoose nodemon cors 
   ```
 
 
