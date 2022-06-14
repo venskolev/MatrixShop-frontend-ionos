@@ -28,7 +28,7 @@ Full Stack Developer
   ```
 - for Express
   ```
-  npm install express mongoose nodemon cors 
+  npm install express dotenv mongoose nodemon cors 
   ```
 
 
