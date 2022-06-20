@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.css";
 
-import Nav from "./Components/NavBar/NavBar";
+
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // PAGES
@@ -12,13 +12,14 @@ import Login from "./Components/Pages/Login";
 import Category from "./Components/Pages/Category";
 import ShoppingCard from "./Components/Pages/ShoppingCard";
 import Contact from "./Components/Pages/Contact";
+import Header from "./Components/Header";
 
 
 export default function App() {
   return (
     <div className="App">
       <Router>
-        <Nav />
+        <Header />
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/login" element={<Login />} />
