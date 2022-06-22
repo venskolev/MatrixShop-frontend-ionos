@@ -10,9 +10,10 @@ import {
   MenuItem,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
+import Search from "./Search";
 import React, { useState, useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
-import Navbar from "./NavBar/NavBar";
+import Navbar from "./NavBar";
 
 const headersData = [
   {
@@ -156,6 +157,7 @@ export default function Header() {
     
     <Typography >
       <Navbar />
+      
     </Typography>
   );
 
@@ -180,8 +182,9 @@ export default function Header() {
   return (
     <header>
       <AppBar className={header}>
-        {mobileView ? displayMobile() : displayDesktop()}
+        {displayDesktop()}
       </AppBar>
+      <Search />
     </header>
   );
 }

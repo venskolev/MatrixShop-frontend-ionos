@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 import { SidebarData } from "./SidebarData";
 
 // STYLES
-import "./Navbar.css";
+import "../../sass/Navbar.scss";
 
 export default function Navbar() {
   const [sidebar, setSidebar] = useState(false);

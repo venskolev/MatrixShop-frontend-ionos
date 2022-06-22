@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.css";
+import "./sass/styles.scss";
 
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -12,7 +12,8 @@ import Login from "./Components/Pages/Login";
 import Category from "./Components/Pages/Category";
 import ShoppingCard from "./Components/Pages/ShoppingCard";
 import Contact from "./Components/Pages/Contact";
-import Header from "./Components/Header";
+import Header from "./Components/NavBar/Header";
+import SignUp from "./Components/Pages/SignUp";
 
 
 export default function App() {
@@ -22,7 +23,9 @@ export default function App() {
         <Header />
         <Routes>
           <Route path="/" exact element={<Home />} />
+          <Route path="/:product_id"></Route>
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/category" element={<Category />} />
           <Route path="/products" element={<Products />} />
           <Route path="/shoppingcard" element={<ShoppingCard />} />

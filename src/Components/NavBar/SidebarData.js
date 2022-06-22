@@ -33,7 +33,7 @@ export const SidebarData = [
     cName: "nav-text"
   },
   {
-    title: "Shopping card",
+    title: "Warenkorb",
     path: "/shoppingcard",
     icon: <CgIcons.CgShoppingCart />,
     cName: "nav-text"

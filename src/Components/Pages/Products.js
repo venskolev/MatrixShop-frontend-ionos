@@ -1,6 +1,6 @@
 import React from "react";
 import Footer from "../Footer/Footer";
-import ProductsCart from "../Products/ProductsCart";
+import Product from "../Products/Products";
 
 export default function Products() {
   return (
@@ -9,7 +9,7 @@ export default function Products() {
         <h1>Products</h1>
       </div>
 
-      <ProductsCart />
+      <Product />
       <Footer />
     </>
   );
