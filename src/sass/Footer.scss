@@ -1,0 +1,80 @@
+.Footer {
+  
+    padding: 30px 50px !important;
+    background: #fafafaea;
+    bottom: 0;
+    // width: 100%;
+    border-top: 2px solid black;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    @media (max-width: 1000px) {
+      padding: 40px 10px;
+    }
+ 
+
+  .Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // max-width: 1000px;
+    margin: 10 auto;
+
+    /* background: red; */
+    span {
+      color: #000;
+      font-size: 12px;
+      font-weight: italic;
+      margin-left: 0;
+      padding: 5px;
+      text-align: right;
+    }
+  }
+
+  .Column {
+    display: flex;
+    flex-direction: column;
+    // text-align: center;
+    margin-left: 60px;
+
+    span {
+      color: #000;
+      font-size: 12px;
+      font-weight: italic;
+      margin-left: 0;
+      padding: 5px;
+    }
+  }
+
+  .Row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+        justify-content: center;
+    grid-gap: 20px;
+
+    @media (max-width: 1000px) {
+      grid-template-columns: repeat(auto-fill,
+          minmax(200px, 1fr));
+    }
+  }
+
+  a {
+    color: #000;
+    margin-bottom: 2px;
+    font-size: 16px;
+    text-decoration: none;
+
+    &:hover {
+      color: green;
+      transition: 200ms ease-in;
+    }
+  }
+
+  .Heading {
+    font-size: 24px;
+    color: #000;
+    margin-bottom: 2px;
+    font-weight: bold;
+  }
+}

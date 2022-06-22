@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Final Project -- Ecommerce website with the MERN stack with React Context API
 ===
 Full Stack Developer
@@ -51,3 +52,6 @@ Full Stack Developer
 If you use xxx,please use the following us entry.
 ```
 ```
+=======
+# frontend
+>>>>>>> 3f2916dc420d15d80c794bf548c30970c9eb17c4
