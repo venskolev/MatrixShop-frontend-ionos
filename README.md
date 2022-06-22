@@ -22,14 +22,12 @@ Full Stack Developer
 ## Use
 - for React JS
   ```
-  npm install
+  npm install react-dom
   ```
+  npm i axios
   ```
-  npm i react-dom
-  ```
-  ```
+  
 - for Express
-  ```
   ```
   npm install express dotenv mongoose nodemon cors 
   ```
