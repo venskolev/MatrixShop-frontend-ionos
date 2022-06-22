@@ -1,20 +1,15 @@
 import React from 'react';
 
-// Components
-import Product from './Product';
 
-const Products = props => {
+// Components
+
+
+export default function Products() {
 	return (
+		<>
 		<div className="products-container">
-			{props.products.map(product => (
-				<Product
-					key={product.key}
-					product={product}
-					addItem={props.addItem}
-				/>
-			))}
 		</div>
+		</>
 	);
 };
 
-export default Products;

@@ -42,18 +42,16 @@ class ProductsCart extends PureComponent {
           "green",
           {
             additionalCost: {
-              GBP: 1,
               EUR: 2,
-              USD: 3.5,
             },
             value: "yellow",
           },
         ],
       },
-      propertiesToShowInCart: ["color"],
-      prices: { GBP: 70, EUR: 80, USD: 90 },
+       propertiesToShowInCart: ["color"],
+      prices: {EUR: 80},
       currency: "EUR",
-      imageSrc: "https://olegnn.github.io/react-shopping-cart/public/macbook-case-photo.jpeg",
+      imageSrc: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
     },
     getProductLocalization: getDefaultLocalization("product", "en", {
       ...iPadCaseLocalization,
