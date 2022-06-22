@@ -24,6 +24,7 @@ Full Stack Developer
   ```
   npm install react-dom
   ```
+  ```
   npm i axios
   ```
   
