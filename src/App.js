@@ -14,6 +14,8 @@ import ShoppingCard from "./Components/Pages/ShoppingCard";
 import Contact from "./Components/Pages/Contact";
 import Header from "./Components/NavBar/Header";
 import SignUp from "./Components/Pages/SignUp";
+import Account from "./Components/Pages/Account";
+
 
 
 export default function App() {
@@ -31,6 +33,7 @@ export default function App() {
           <Route path="/shoppingcard" element={<ShoppingCard />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/impressum" element={<Impressum />} />
+          <Route path="/account" element={<Account />} />
         </Routes>
       </Router>
     </div>
