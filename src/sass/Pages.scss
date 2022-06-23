@@ -1,0 +1,49 @@
+
+section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol,
+ul {
+	list-style: none;
+}
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+html {
+	font-family: sans-serif;
+	background: #f3f3f3;
+}
+.impressum {
+	width: 75vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.contact {
+	text-align: center;
+	margin-left: auto;
+	margin-top: 3rem;
+	// margin-right: auto;
+	h1 {
+		text-align: center;
+	}
+  }
+.home {
+	margin-top: 3rem;
+}

@@ -1,9 +1,9 @@
+HEAD
 Final Project -- Ecommerce website with the MERN stack with React Context API
 ===
 Full Stack Developer
 ## DCI 
 - Sham Alhakim
-- Enza
 - Orhan Kadirov
 - Ventsislav Kolev
 
@@ -21,16 +21,18 @@ Full Stack Developer
 ## Use
 - for React JS
   ```
-  npm install
+  npm install react-dom
   ```
   ```
-  npm i react-dom
+  npm i axios
   ```
+  ```
+  npm install react-material-ui-carousel
+  ```
+  
 - for Express
   ```
-  npm install
-  ```
-  npm i nodemon
+  npm install express dotenv mongoose nodemon cors 
   ```
 
 
@@ -53,3 +55,6 @@ Full Stack Developer
 If you use xxx,please use the following us entry.
 ```
 ```
+=======
+# frontend
+>>>>>>> 3f2916dc420d15d80c794bf548c30970c9eb17c4
