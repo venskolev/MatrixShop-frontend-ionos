@@ -17,6 +17,10 @@ import Navbar from "./NavBar";
 
 const headersData = [
   {
+    label: "Home",
+    href: "/"
+  },
+  {
     label: "Login",
     href: "/login",
   },
@@ -25,7 +29,7 @@ const headersData = [
     href: "/shoppingcard",
   },
   {
-    label: "My Account",
+    label: "Meins",
     href: "/account",
   },
   {
@@ -36,9 +40,10 @@ const headersData = [
 
 const useStyles = makeStyles(() => ({
   header: {
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "#f5f5f5ee",
     paddingRight: "79px",
     paddingLeft: "118px",
+    marginTop: 50,
     "@media (max-width: 900px)": {
       paddingLeft: 0,
     },
@@ -107,7 +112,6 @@ export default function Header() {
 
     return (
       <Toolbar>
-        
         <IconButton
           {...{
             edge: "start",
@@ -154,10 +158,8 @@ export default function Header() {
   };
 
   const femmecubatorLogo = (
-    
-    <Typography >
+    <Typography>
       <Navbar />
-      
     </Typography>
   );
 
@@ -181,9 +183,7 @@ export default function Header() {
 
   return (
     <header>
-      <AppBar className={header}>
-        {displayDesktop()}
-      </AppBar>
+      <AppBar className={header}>{displayDesktop()}</AppBar>
       <Search />
     </header>
   );
