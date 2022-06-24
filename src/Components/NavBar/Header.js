@@ -12,6 +12,7 @@ import {
 import MenuIcon from "@material-ui/icons/Menu";
 import React, { useState, useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
+import CategoryNav from "./CategoryNav";
 import Navbar from "./NavBar";
 import Search from "./Search";
 
@@ -188,6 +189,7 @@ export default function Header() {
       <AppBar className={header}>{displayDesktop()}</AppBar>
       <div>{displayMobile()}</div>
       <Search />
+      <CategoryNav />
     </header>
   );
 }
