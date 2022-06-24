@@ -16,6 +16,7 @@ import SignUp from "./Components/Pages/SignUp";
 import ChatApp from "./Components/Chat/ChatApp";
 import Account from "./Components/Pages/Account";
 
+
 export default function App() {
   return (
     <div className="App">

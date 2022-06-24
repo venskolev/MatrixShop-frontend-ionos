@@ -10,10 +10,12 @@ import {
   MenuItem,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import Search from "./Search";
 import React, { useState, useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
+import CategoryNav from "./CategoryNav";
 import Navbar from "./NavBar";
+import Search from "./Search";
+
 
 const headersData = [
   {
@@ -98,7 +100,7 @@ export default function Header() {
   const displayDesktop = () => {
     return (
       <Toolbar className={toolbar}>
-        {femmecubatorLogo}
+        {femmecubatorMenu}
         <div>{getMenuButtons()}</div>
       </Toolbar>
     );
@@ -134,7 +136,7 @@ export default function Header() {
           <div className={drawerContainer}>{getDrawerChoices()}</div>
         </Drawer>
 
-        <div>{femmecubatorLogo}</div>
+        <div>{femmecubatorMenu}</div>
       </Toolbar>
     );
   };
@@ -157,7 +159,9 @@ export default function Header() {
     });
   };
 
-  const femmecubatorLogo = (
+
+  const femmecubatorMenu = (
+
     <Typography>
       <Navbar />
     </Typography>
@@ -184,7 +188,11 @@ export default function Header() {
   return (
     <header>
       <AppBar className={header}>{displayDesktop()}</AppBar>
+
+      <div>{displayMobile()}</div>
+
       <Search />
+      <CategoryNav />
     </header>
   );
 }
