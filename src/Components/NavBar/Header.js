@@ -159,10 +159,11 @@ export default function Header() {
     });
   };
 
+
   const femmecubatorMenu = (
+
     <Typography>
       <Navbar />
-      
     </Typography>
   );
 
@@ -187,7 +188,9 @@ export default function Header() {
   return (
     <header>
       <AppBar className={header}>{displayDesktop()}</AppBar>
+
       <div>{displayMobile()}</div>
+
       <Search />
       <CategoryNav />
     </header>
