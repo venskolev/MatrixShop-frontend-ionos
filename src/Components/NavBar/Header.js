@@ -45,7 +45,8 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "#f5f5f5ee",
     paddingRight: "79px",
     paddingLeft: "118px",
-    marginTop: 50,
+    marginTop: 60,
+
     "@media (max-width: 900px)": {
       paddingLeft: 0,
     },
@@ -55,6 +56,7 @@ const useStyles = makeStyles(() => ({
     fontWeight: 600,
     color: "#fff",
     textAlign: "left",
+    alignItems: "center",
   },
   menuButton: {
     fontFamily: "Open Sans, sans-serif",
