@@ -10,12 +10,18 @@ import {
   MenuItem,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import Search from "./Search";
 import React, { useState, useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
+import CategoryNav from "./CategoryNav";
 import Navbar from "./NavBar";
+import Search from "./Search";
+
 
 const headersData = [
+  {
+    label: "Home",
+    href: "/"
+  },
   {
     label: "Login",
     href: "/login",
@@ -25,7 +31,7 @@ const headersData = [
     href: "/shoppingcard",
   },
   {
-    label: "My Account",
+    label: "Meins",
     href: "/account",
   },
   {
@@ -36,9 +42,11 @@ const headersData = [
 
 const useStyles = makeStyles(() => ({
   header: {
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "#f5f5f5ee",
     paddingRight: "79px",
     paddingLeft: "118px",
+    marginTop: 60,
+
     "@media (max-width: 900px)": {
       paddingLeft: 0,
     },
@@ -48,6 +56,7 @@ const useStyles = makeStyles(() => ({
     fontWeight: 600,
     color: "#fff",
     textAlign: "left",
+    alignItems: "center",
   },
   menuButton: {
     fontFamily: "Open Sans, sans-serif",
@@ -65,14 +74,14 @@ const useStyles = makeStyles(() => ({
 }));
 
 export default function Header() {
-  const { header, logo, menuButton, toolbar, drawerContainer } = useStyles();
+  const { header, menuButton, toolbar, drawerContainer } = useStyles();
 
   const [state, setState] = useState({
     mobileView: false,
     drawerOpen: false,
   });
 
-  const { mobileView, drawerOpen } = state;
+  const { drawerOpen } = state;
 
   useEffect(() => {
     const setResponsiveness = () => {
@@ -93,7 +102,7 @@ export default function Header() {
   const displayDesktop = () => {
     return (
       <Toolbar className={toolbar}>
-        {femmecubatorLogo}
+        {femmecubatorMenu}
         <div>{getMenuButtons()}</div>
       </Toolbar>
     );
@@ -107,7 +116,6 @@ export default function Header() {
 
     return (
       <Toolbar>
-        
         <IconButton
           {...{
             edge: "start",
@@ -130,7 +138,7 @@ export default function Header() {
           <div className={drawerContainer}>{getDrawerChoices()}</div>
         </Drawer>
 
-        <div>{femmecubatorLogo}</div>
+        <div>{femmecubatorMenu}</div>
       </Toolbar>
     );
   };
@@ -153,11 +161,11 @@ export default function Header() {
     });
   };
 
-  const femmecubatorLogo = (
-    
-    <Typography >
+
+  const femmecubatorMenu = (
+
+    <Typography>
       <Navbar />
-      
     </Typography>
   );
 
@@ -181,10 +189,12 @@ export default function Header() {
 
   return (
     <header>
-      <AppBar className={header}>
-        {displayDesktop()}
-      </AppBar>
+      <AppBar className={header}>{displayDesktop()}</AppBar>
+
+      <div>{displayMobile()}</div>
+
       <Search />
+      <CategoryNav />
     </header>
   );
 }

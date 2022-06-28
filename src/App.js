@@ -14,6 +14,8 @@ import Contact from "./Components/Pages/Contact";
 import Header from "./Components/NavBar/Header";
 import SignUp from "./Components/Pages/SignUp";
 import ChatApp from "./Components/Chat/ChatApp";
+import Account from "./Components/Pages/Account";
+
 
 export default function App() {
   return (
@@ -32,6 +34,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/chat" element={<ChatApp />} />
+          <Route path="/account" element={<Account />} />
         </Routes>
       </Router>
     </div>
