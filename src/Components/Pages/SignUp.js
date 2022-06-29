@@ -5,6 +5,7 @@ import "../../sass/Pages.scss"
 import { Register } from "../Login/Register";
 
 
+
 export default function SignUp() {
   return (
     <>
