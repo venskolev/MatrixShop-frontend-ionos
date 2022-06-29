@@ -1,7 +1,6 @@
 import React from "react";
 import "./sass/styles.scss";
 
-
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 // PAGES
@@ -14,6 +13,8 @@ import ShoppingCard from "./Components/Pages/ShoppingCard";
 import Contact from "./Components/Pages/Contact";
 import Header from "./Components/NavBar/Header";
 import SignUp from "./Components/Pages/SignUp";
+import ChatApp from "./Components/Chat/ChatApp";
+import Account from "./Components/Pages/Account";
 
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
     <div className="App">
       <Router>
         <Header />
+        <ChatApp />
         <Routes>
           <Route path="/" exact element={<Home />} />
           <Route path="/:product_id"></Route>
@@ -31,6 +33,8 @@ export default function App() {
           <Route path="/shoppingcard" element={<ShoppingCard />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/impressum" element={<Impressum />} />
+          <Route path="/chat" element={<ChatApp />} />
+          <Route path="/account" element={<Account />} />
         </Routes>
       </Router>
     </div>
@@ -49,16 +53,16 @@ export default function App() {
 //         setDataUsers(response.data);
 //       } catch (err) {
 //         console.log(err);
-        
+
 //       }
 //     };
 //     loadData();
 //   }, []);
- 
+
 //   return (
 //     <>
 //     <h1>Matrix Shop</h1>
-    
+
 //     {JSON.stringify(data)}
 //     </>
 //   );

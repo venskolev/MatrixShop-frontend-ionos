@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="Row">
           <div className="Column">
             <div className="Heading">Über uns</div>
-            <p><a href="/">Enza</a>, <a href="/">Sham</a>, <a href="/">Orhan</a>  & <a href="/">Vens</a> </p>
+            <p><a href="/">Orhan</a>  & <a href="/">Vens</a> </p>
             <div className="FooterLink">
               <a href="/impressum">Impressum</a>
               </div>
