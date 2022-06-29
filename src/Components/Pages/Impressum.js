@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "../Footer/Footer";
+
 import "../../sass/Pages.scss";
 
 export default function Impressum() {
@@ -177,7 +177,7 @@ export default function Impressum() {
           wurde freundlicherweise von www.jurarat.de zur Verfügung gestellt.
         </p>
       </div>
-      <Footer />
+
     </>
   );
 }
