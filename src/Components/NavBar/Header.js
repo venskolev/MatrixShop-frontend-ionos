@@ -16,7 +16,9 @@ import { Link as RouterLink } from "react-router-dom";
 import Navbar from "./NavBar";
 
 import Logo from "./logo.png"
+
 import CategoryNav from "./CategoryNav";
+
 
 
 const headersData = [
@@ -211,7 +213,9 @@ export default function Header() {
        <div>{displayMobile()}</div> 
 
       {/* <Search /> */}
+
        <CategoryNav />
+
     </header>
   );
 }
