@@ -4,6 +4,7 @@ import { Paper, Button, Typography, Box } from "@mui/material";
 import { green } from "@mui/material/colors";
 import { makeStyles } from "@mui/styles";
 import Icon from "@mui/material/Icon";
+import "../../sass/Carousel.scss"
 
 function Hero(props) {
   var items = [
@@ -46,7 +47,8 @@ const useStyles = makeStyles({
     justifyContent: "center",
     position: "relative",
     width: "75vw",
-    margin: "auto"
+    margin: "auto",
+    marginTop: "60px"
   },
   img_responsive: {
     maxHeight: "560px",
