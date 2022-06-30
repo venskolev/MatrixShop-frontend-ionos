@@ -6,16 +6,15 @@ import {
   Button,
   IconButton,
   Drawer,
-  Link,
-  MenuItem, 
+  Link, 
   Box
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import React, { useState, useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
-import CategoryNav from "./CategoryNav";
+//import CategoryNav from "./CategoryNav";
 import Navbar from "./NavBar";
-import Search from "./Search";
+
 import Logo from "./logo.png"
 
 
@@ -47,8 +46,6 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "#f5f5f5ee",
     paddingRight: "79px",
     paddingLeft: "118px",
-    marginTop: 60,
-
     "@media (max-width: 900px)": {
       paddingLeft: 0,
     },
@@ -210,7 +207,7 @@ export default function Header() {
     <header>
       <AppBar className={header}>{displayDesktop()}</AppBar>
 
-      {/* <div>{displayMobile()}</div> */}
+       <div>{displayMobile()}</div> 
 
       {/* <Search /> */}
       {/* <CategoryNav /> */}
