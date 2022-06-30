@@ -6,15 +6,16 @@ import {
   Button,
   IconButton,
   Drawer,
-  Link,
-  MenuItem,
+  Link, 
+  Box
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import React, { useState, useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
-import CategoryNav from "./CategoryNav";
+//import CategoryNav from "./CategoryNav";
 import Navbar from "./NavBar";
-import Search from "./Search";
+
+import Logo from "./logo.png"
 
 
 const headersData = [
@@ -45,8 +46,6 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "#f5f5f5ee",
     paddingRight: "79px",
     paddingLeft: "118px",
-    marginTop: 60,
-
     "@media (max-width: 900px)": {
       paddingLeft: 0,
     },
@@ -57,6 +56,7 @@ const useStyles = makeStyles(() => ({
     color: "#fff",
     textAlign: "left",
     alignItems: "center",
+    height: "64px",
   },
   menuButton: {
     fontFamily: "Open Sans, sans-serif",
@@ -98,12 +98,16 @@ export default function Header() {
       window.removeEventListener("resize", () => setResponsiveness());
     };
   }, []);
+  
 
   const displayDesktop = () => {
     return (
       <Toolbar className={toolbar}>
-        {femmecubatorMenu}
+        {femmecubatorLogo}
         <div>{getMenuButtons()}</div>
+        {femmecubatorMenu}
+        
+        
       </Toolbar>
     );
   };
@@ -137,8 +141,6 @@ export default function Header() {
         >
           <div className={drawerContainer}>{getDrawerChoices()}</div>
         </Drawer>
-
-        <div>{femmecubatorMenu}</div>
       </Toolbar>
     );
   };
@@ -155,11 +157,25 @@ export default function Header() {
             key: label,
           }}
         >
-          <MenuItem>{label}</MenuItem>
+          {/* <MenuItem>{label}</MenuItem> */}
         </Link>
       );
     });
   };
+  const femmecubatorLogo = (
+        <Link{...{ href: "/"}}>
+        <Box
+        style={{width: "50px"}}
+            component="img"
+            sx={{
+            height: 64,
+            }}
+            alt="Your logo."
+            src={Logo}
+        />
+        </Link>
+  );
+
 
 
   const femmecubatorMenu = (
@@ -191,10 +207,10 @@ export default function Header() {
     <header>
       <AppBar className={header}>{displayDesktop()}</AppBar>
 
-      <div>{displayMobile()}</div>
+       <div>{displayMobile()}</div> 
 
-      <Search />
-      <CategoryNav />
+      {/* <Search /> */}
+      {/* <CategoryNav /> */}
     </header>
   );
 }
