@@ -120,7 +120,7 @@ export default function Header() {
 
     return (
       <Toolbar>
-        <IconButton
+        {/* <IconButton
           {...{
             edge: "start",
             color: "secondary",
@@ -130,7 +130,7 @@ export default function Header() {
           }}
         >
           <MenuIcon />
-        </IconButton>
+        </IconButton> */}
 
         <Drawer
           {...{
