@@ -106,9 +106,11 @@ export default function Header() {
   const displayDesktop = () => {
     return (
       <Toolbar className={toolbar}>
-        {femmecubatorMenu}
         {femmecubatorLogo}
         <div>{getMenuButtons()}</div>
+        {femmecubatorMenu}
+        
+        
       </Toolbar>
     );
   };
@@ -164,6 +166,7 @@ export default function Header() {
     });
   };
   const femmecubatorLogo = (
+        <Link{...{ href: "/"}}>
         <Box
         style={{width: "50px"}}
             component="img"
@@ -173,6 +176,7 @@ export default function Header() {
             alt="Your logo."
             src={Logo}
         />
+        </Link>
   );
 
 
