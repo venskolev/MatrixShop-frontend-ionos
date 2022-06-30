@@ -15,6 +15,8 @@ import Header from "./Components/NavBar/Header";
 import SignUp from "./Components/Pages/SignUp";
 import ChatApp from "./Components/Chat/ChatApp";
 import Account from "./Components/Pages/Account";
+import Footer from "./Components/Footer/Footer";
+
 
 
 export default function App() {
@@ -36,6 +38,7 @@ export default function App() {
           <Route path="/chat" element={<ChatApp />} />
           <Route path="/account" element={<Account />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );

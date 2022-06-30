@@ -47,7 +47,7 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "#f5f5f5ee",
     paddingRight: "79px",
     paddingLeft: "118px",
-    // marginTop: 60,
+    marginTop: 60,
 
     "@media (max-width: 900px)": {
       paddingLeft: 0,
@@ -77,7 +77,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 export default function Header() {
-  const { header, logo, menuButton, toolbar, drawerContainer } = useStyles();
+  const { header, menuButton, toolbar, drawerContainer } = useStyles();
 
   const [state, setState] = useState({
     mobileView: false,
