@@ -11,6 +11,13 @@ const socket = io.connect("http://vens.selfhost.co:5000");
 
 
 
+const socket = io.connect("http://vens.selfhost.co:5000", {
+  withCredentials: true,
+  extraHeaders: {
+    "my-custom-header": "abcd"
+  }
+});
+
 function ChatApp() {
   const [username, setUsername] = useState("");
   // eslint-disable-next-line no-unused-vars
