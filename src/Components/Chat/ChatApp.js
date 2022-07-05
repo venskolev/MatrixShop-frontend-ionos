@@ -7,15 +7,12 @@ import { useState } from "react";
 
 
 
-const socket = io.connect("http://vens.selfhost.co:5000");
 
 
 
 const socket = io.connect("http://vens.selfhost.co:5000", {
   withCredentials: true,
-  extraHeaders: {
-    "my-custom-header": "abcd"
-  }
+
 });
 
 function ChatApp() {
