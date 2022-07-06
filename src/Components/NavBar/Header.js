@@ -4,12 +4,11 @@ import {
   Typography,
   makeStyles,
   Button,
-  IconButton,
   Drawer,
   Link, 
   Box
 } from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
+
 import React, { useState, useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
 //import CategoryNav from "./CategoryNav";
@@ -52,6 +51,9 @@ const useStyles = makeStyles(() => ({
     "@media (max-width: 900px)": {
       paddingLeft: 0,
     },
+    jss1: {
+      margin: 0,
+    }
   },
   logo: {
     fontFamily: "Work Sans, sans-serif",
