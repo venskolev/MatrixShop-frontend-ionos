@@ -10,12 +10,11 @@ const container = document.getElementById("root");
 const root = createRoot(container);
 root.render(
   <React.StrictMode>
-    </UserContextProvider>
     <AdminContextProvider>
       <UserContextProvider>
-      <ProductContextProvider>
-        <App />
-      </ProductContextProvider>
+        <ProductContextProvider>
+          <App />
+        </ProductContextProvider>
       </UserContextProvider>
     </AdminContextProvider>
   </React.StrictMode>
