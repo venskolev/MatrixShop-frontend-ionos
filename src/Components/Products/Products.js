@@ -7,7 +7,9 @@ const Products = () => {
   return (
     <>
 
+
       <div className="products-container">{JSON.stringify(products)}</div>
+
 
     </>
   );

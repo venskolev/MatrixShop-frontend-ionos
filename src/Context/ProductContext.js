@@ -11,9 +11,11 @@ export const ProductContextProvider = ({ children }) => {
       try {
         const response = await axios.get(
 
+
           `${process.env.REACT_APP_API}/products`
         );
         setProducts(response.data);
+
 
       } catch (err) {
         console.log(err);
