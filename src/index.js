@@ -1,8 +1,9 @@
 import React from "react";
-import { AdminContextProvider } from "./Context/AdminContext";
+import { createRoot } from "react-dom/client";
 import { UserContextProvider } from "./Context/UserContext";
-
+import { ProductContextProvider } from "./Context/ProductContext";
 import App from "./App";
+import { AdminContextProvider } from "./Context/AdminContext";
 
 import { createRoot } from "react-dom/client";
 
@@ -13,7 +14,9 @@ root.render(
   <React.StrictMode>
     <AdminContextProvider>
       <UserContextProvider>
-        <App />
+        <ProductContextProvider>
+          <App />
+        </ProductContextProvider>
       </UserContextProvider>
     </AdminContextProvider>
   </React.StrictMode>
