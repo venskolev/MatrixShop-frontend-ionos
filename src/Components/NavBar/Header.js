@@ -210,7 +210,7 @@ export default function Header() {
     <header>
       <AppBar className={header}>{displayDesktop()}</AppBar>
 
-       <div>{displayMobile()}</div> 
+       {/* <div>{displayMobile()}</div>  */}
 
       {/* <Search /> */}
 
