@@ -50,9 +50,6 @@ const useStyles = makeStyles(() => ({
     paddingLeft: "118px",
     "@media (max-width: 900px)": {
       paddingLeft: 0,
-    },
-    jss1: {
-      margin: 0,
     }
   },
   logo: {
