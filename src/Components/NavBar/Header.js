@@ -58,7 +58,7 @@ const useStyles = makeStyles(() => ({
     color: "#fff",
     textAlign: "left",
     alignItems: "center",
-    height: "64px",
+    height: "50px",
   },
   menuButton: {
     fontFamily: "Open Sans, sans-serif",
@@ -170,7 +170,7 @@ export default function Header() {
         style={{width: "50px"}}
             component="img"
             sx={{
-            height: 64,
+            height: 50,
             }}
             alt="Your logo."
             src={Logo}
