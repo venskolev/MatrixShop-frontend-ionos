@@ -6,6 +6,7 @@ import "../../sass/ShoppingCart.scss";
 
 const ProductCart = () => {
 
+
   const { isEmpty, totalUniqueItems, items, updateItemQuantity, removeItem } =
     useCart();
 
