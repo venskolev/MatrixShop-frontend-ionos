@@ -15,7 +15,6 @@ export const UserContextProvider = ({ children }) => {
     // let timeoutHandle = 0;
     if (token) {
       localStorage.setItem("token", token);
-
       // timeoutHandle = setTimeout(() => {
       //   setToken(null);
       //   console.log("timeoutHandle:")
@@ -30,6 +29,7 @@ export const UserContextProvider = ({ children }) => {
     //   }
     // };
   }, [token]);
+console.log("UserContext:", token)
 
 console.log("UserContext Token:", token)
 
