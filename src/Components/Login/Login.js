@@ -37,6 +37,7 @@ const theme = createTheme();
 export const LoginForm = () => {
   const nav = useNavigate();
 
+
   const { signIn, user} = useUser();
 
   const [email, setEmail] = useState("");
@@ -45,11 +46,9 @@ export const LoginForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-
     console.log("User test role:", user.role)
     if (user.role === 1) {
       console.log("User is Admin")
-
       nav('/admin')
     } else {
       nav('/account');
