@@ -69,6 +69,7 @@ console.log("UserContext Token:", token)
   };
 
    const [roles, setRole] = useState([]);
+
     const userAdmin = async () => {
     try {
       const response = await axios.get(`${process.env.REACT_APP_API}/users`);
@@ -78,6 +79,7 @@ console.log("UserContext Token:", token)
       const { token } = response.data;
       setToken(token);
       setRole(response.data)
+
     } catch (err) {
       console.log(err.message)
     }
@@ -96,6 +98,7 @@ console.log("UserContext Token:", token)
   }
   
 
+
   return (
     <UserContext.Provider
       value={{
@@ -105,8 +108,7 @@ console.log("UserContext Token:", token)
         signUp,
         signOut,
         userAdmin,
-        role,
-        // setRole
+        role
       }}
     >
       {children}
