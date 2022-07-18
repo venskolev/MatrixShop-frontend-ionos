@@ -32,12 +32,6 @@ export const UserContextProvider = ({ children }) => {
 console.log("UserContext Token:", token)
 
 
-console.log("UserContext Token:", token)
-
-
-console.log("UserContext Token:", token)
-
-
   const signIn = async (email, password) => {
     try {
       const response = await axios.post(
@@ -74,8 +68,8 @@ console.log("UserContext Token:", token)
     }
   };
 
+   const [roles, setRole] = useState([]);
 
-  const [role, setRole] = useState([]);
     const userAdmin = async () => {
     try {
       const response = await axios.get(`${process.env.REACT_APP_API}/users`);
@@ -84,6 +78,8 @@ console.log("UserContext Token:", token)
       // console.log(response.data)
       const { token } = response.data;
       setToken(token);
+      setRole(response.data)
+
     } catch (err) {
       console.log(err.message)
     }
@@ -95,10 +91,12 @@ console.log("UserContext Token:", token)
   };
 
   let user = null;
+  let role = roles;
   if (token) {
     user = jwt_decode(token);
+    role = jwt_decode(token)
   }
-  const decoded = jwt_decode(token);
+  
 
 
   return (
@@ -110,8 +108,7 @@ console.log("UserContext Token:", token)
         signUp,
         signOut,
         userAdmin,
-        role,
-        setRole
+        role
       }}
     >
       {children}
