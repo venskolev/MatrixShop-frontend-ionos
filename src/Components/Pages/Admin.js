@@ -1,27 +1,38 @@
-import React from "react";
-// import ProductsList from "../Products/ProductsList";
-// import { useAdminContext } from "../../Context/AdminContext"; 
-// import AddProducts from "../Products/AddProducts";
 import Products from "../Products/Admin/AdminProducts";
-import '../../sass/AdminProducts.scss';
-
-
+import "../../sass/AdminProducts.scss";
+import { useUser } from "../../Context/UserContext";
+import { Button } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 export default function UserAdmin() {
-  
-// const { listData } = useAdminContext();
+  const { user, token } = useUser();
 
-  return (
-    <>
-      <div className="products" style={{marginTop: "150px"}}>
-       <h1>Admin</h1>
+  console.log(user);
+  return token ? (
+    user.role === 1 ? (
+      <>
+        <div className="products" style={{ marginTop: "150px" }}>
+          <h1>Admin</h1>
+        </div>
+        <Products />
+      </>
+    ) : (
+      <div>
+        <h1>Hallo {JSON.stringify(user.email)} hier ist Only Admin's</h1>
       </div>
-      {/* {JSON.stringify(listData)} */}
- <Products />    
-
-<div>
-{/* <ProductsList /> */}
-</div>
-    </>
+    )
+  ) : (
+    <div><h1>Du bist nicht angemeldet!</h1>
+    <h2>Bitte anmelden!</h2>
+    <Button
+    size="large"
+    color="success"
+    variant="contained"
+    component={RouterLink}
+    to="/login"
+    >Enlogen
+    </Button>
+    </div>
   );
 }

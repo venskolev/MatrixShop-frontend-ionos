@@ -5,20 +5,25 @@ import jwt_decode from "jwt-decode";
 const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
+  
   const [token, setToken] = useState(() => {
+    
     const token = localStorage.getItem("token");
+    console.log("Swach")
     return token || null;
   });
-   
+  // const decoded = jwt_decode(token);
 
   useEffect(() => {
     // let timeoutHandle = 0;
     if (token) {
       localStorage.setItem("token", token);
-      // const decoded = jwt_decode(token);
+
       // timeoutHandle = setTimeout(() => {
       //   setToken(null);
-      // }, decoded.exp * 1000 - Date.now());
+      //   console.log("timeoutHandle:")
+      // }, 100000);
+      
     } else {
       localStorage.removeItem("token");
     }
@@ -75,7 +80,7 @@ console.log("UserContext Token:", token)
       const response = await axios.get(`${process.env.REACT_APP_API}/users`);
       // const role = response.data;
       // setRole(response.data);
-      // console.log(response.data)
+      // console.log(response)
       const { token } = response.data;
       setToken(token);
       setRole(response.data)
