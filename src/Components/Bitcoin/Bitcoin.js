@@ -23,7 +23,7 @@ export default function Bitcoin() {
   useEffect(() => {
     const loadCoins = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/coins`);
+        const response = await axios.get(`${process.env.REACT_APP_API}/coins`);
         setCoins(response.data.data);
       } catch (err) {
         console.log(err);
@@ -32,7 +32,7 @@ export default function Bitcoin() {
 
     const loadExchanges = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/exchanges`);
+        const response = await axios.get(`${process.env.REACT_APP_API}/exchanges`);
         setExchanges(response.data);
       } catch (err) {
         console.log(err);
