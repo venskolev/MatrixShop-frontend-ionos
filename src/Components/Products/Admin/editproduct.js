@@ -27,7 +27,7 @@ const EditProduct = ({
   getError
 }) => {
   const nav = useNavigate();
-  const {token} = useUser();
+  const {token, user} = useUser();
   const params = useParams();
   const id = params.productId;
 
@@ -89,6 +89,9 @@ const EditProduct = ({
   //   );
   // };
   return (
+    token ? (
+      user.role === 1 ? (
+        <>
     <div>
       {
       isLoading || isGetting ? (
@@ -178,6 +181,15 @@ const EditProduct = ({
         </div>
       )}
     </div>
+    </>
+    ) : (
+      <div>
+        <h1>Only Admin's</h1>
+      </div>
+    )
+  ) : (
+    <div><h1>Du bist nicht angemeldet!</h1></div>
+  )
   );
 };
 

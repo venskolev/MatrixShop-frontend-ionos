@@ -10,15 +10,15 @@ import "../../sass/Pages.scss"
 export default function Home() {
   return (
     <>
-    <div className="home1">
-      
-     <div>
+
+ <div className="home">
       <div className="Carousel">
      <Carousels  />
      </div>
-      {/* <Category /> */}
-     </div>
-    </div>
+ 
+
+</div>    
+<Category />
     </>
   );
 }

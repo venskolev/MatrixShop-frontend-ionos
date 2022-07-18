@@ -17,7 +17,7 @@ const CreateProduct = ({
   error
 }) => {
 const nav = useNavigate();
-const {token} = useUser();
+const {token, user} = useUser();
 // console.log("Das Ist Token:", token);
 
 const convertToBase64 = (photo) => {
@@ -81,6 +81,9 @@ const ImageBase64 = ({ photo }) => (
   };
 
   return (
+    token ? (
+      user.role === 1 ? (
+        <>
     <div>
       {createSuccess ? (
         <Navigate to='/' />
@@ -195,6 +198,15 @@ const ImageBase64 = ({ photo }) => (
         </div>
       )}
     </div>
+    </>
+    ) : (
+      <div>
+        <h1>Only Admin's</h1>
+      </div>
+    )
+  ) : (
+    <div><h1>Du bist nicht angemeldet!</h1></div>
+  )
   );
 };
 
