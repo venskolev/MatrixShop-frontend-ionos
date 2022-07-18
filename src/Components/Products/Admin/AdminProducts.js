@@ -5,6 +5,7 @@ import { initProduct, initEdit, deleteProduct, setProductList } from '../../../r
 import { Loading, Alert } from './utils';
 import Table from './table';
 import '../../../sass/AdminProducts.scss'
+import { useUser } from "../../../Context/UserContext";
 
 const Products = ({
   products,
@@ -28,6 +29,9 @@ const Products = ({
   const [sortType, setSortType] = useState(0);
   const [queryCur, setQueryCur] = useState('');
   const [activePage, setActivePage] = useState(1);
+
+  // User isAdmin prüfen
+  const { user, token } = useUser();
 
   const handleChange = e => {
     if (e.target.id === 'search') {
@@ -105,6 +109,9 @@ const Products = ({
   }
 
   return (
+    token ? (
+      user.role === 1 ? (
+        <>
     <div>
       <strong className='navbar-brand'><h1 className='display-3 danger'>Products administration</h1></strong>      <div className='flex gap-3'>
         <form className='form-inline p-5' onSubmit={e => handleSearch(e)}>
@@ -151,7 +158,16 @@ const Products = ({
         Create new Product
       </button>
     </div>
-  );
+    </>
+    ) : (
+      <div>
+        <h1>Only Admin's</h1>
+      </div>
+    )
+  ) : (
+    <div><h1>Du bist nicht angemeldet!</h1></div>
+  )
+  )
 };
 
 const mapStateToProps = state => {
