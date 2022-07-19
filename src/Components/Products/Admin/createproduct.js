@@ -32,27 +32,6 @@ const CreateProduct = ({
     });
   };
   
-const nav = useNavigate();
-const {token, user} = useUser();
-// console.log("Das Ist Token:", token);
-
-const convertToBase64 = (photo) => {
-  return new Promise((resolve, reject) => {
-    const fileReader = new FileReader();
-    fileReader.readAsDataURL(photo);
-    fileReader.onload = () => {
-      resolve(fileReader.result);
-    };
-    fileReader.onerror = (error) => {
-      reject(error);
-    };
-  });
-};
-const ImageBase64 = ({ photo }) => (
-  <>
-    {photo ? <img style={{ width: 400 }} alt="Avatar" src={photo} /> : undefined}
-  </>
-);
 
   const ImageBase64 = ({ photo }) => (
     <>
