@@ -31,18 +31,13 @@ const CreateProduct = ({
       };
     });
   };
+
   const ImageBase64 = ({ data }) => (
     <>
       {data ? <img style={{ width: 100 }} alt="Bild" src={data} /> : undefined}
     </>
   );
-  const ImageBase64 = ({ photo }) => (
-    <>
-      {photo ? (
-        <img style={{ width: 400 }} alt="Avatar" src={photo} />
-      ) : undefined}
-    </>
-  );
+
 
   const [productData, setProductData] = useState({
     productName: '',
@@ -65,6 +60,7 @@ const CreateProduct = ({
   };
 
   const handleChange = e => {
+
     setProductData({ ...productData, [e.target.name]: e.target.value });
     console.log("Handlecreate:", productData.name);
 
