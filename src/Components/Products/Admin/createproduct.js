@@ -31,6 +31,28 @@ const CreateProduct = ({
       };
     });
   };
+  
+const nav = useNavigate();
+const {token, user} = useUser();
+// console.log("Das Ist Token:", token);
+
+const convertToBase64 = (photo) => {
+  return new Promise((resolve, reject) => {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(photo);
+    fileReader.onload = () => {
+      resolve(fileReader.result);
+    };
+    fileReader.onerror = (error) => {
+      reject(error);
+    };
+  });
+};
+const ImageBase64 = ({ photo }) => (
+  <>
+    {photo ? <img style={{ width: 400 }} alt="Avatar" src={photo} /> : undefined}
+  </>
+);
 
   const ImageBase64 = ({ photo }) => (
     <>
@@ -90,6 +112,16 @@ const CreateProduct = ({
   return token ? (
     user.role === 1 ? (
       <>
+  return (
+    token ? (
+      user.role === 1 ? (
+        <>
+    <div>
+      {createSuccess ? (
+        <Navigate to='/' />
+      ) : isLoading ? (
+        <Loading />
+      ) : (
         <div>
           {createSuccess ? (
             <Navigate to="/" />
@@ -219,6 +251,15 @@ const CreateProduct = ({
     <div>
       <h1>Du bist nicht angemeldet!</h1>
     </div>
+    </>
+    ) : (
+      <div>
+        <h1>Only Admin's</h1>
+      </div>
+    )
+  ) : (
+    <div><h1>Du bist nicht angemeldet!</h1></div>
+  )
   );
 };
 
