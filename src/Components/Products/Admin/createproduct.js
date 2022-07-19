@@ -30,8 +30,7 @@ const CreateProduct = ({
         reject(error);
       };
     });
-  };
-  
+  }; 
 
   const ImageBase64 = ({ photo }) => (
     <>
