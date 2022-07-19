@@ -206,6 +206,7 @@ const CreateProduct = ({
                     </div>
                   </form>
                   <div className='alert-text'>{alertContent}</div>
+
                 </div>
               </div>
             )}
