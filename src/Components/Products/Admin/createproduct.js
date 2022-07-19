@@ -161,9 +161,9 @@ const ImageBase64 = ({ photo }) => (
         />
         <ImageBase64 data={photo} />
                 {/* <Upload /> */}
-                {/* <small className='form-text text-muted'> */}
-                {/* JPEG, minimum resolution of 700px × 700px, maximum size 25MB */}
-                {/* </small> */}
+                 <small className='form-text text-muted'> 
+                 JPEG, minimum resolution of 700px × 700px, maximum size 25MB 
+                </small> 
                 
               </div> 
               {/* {error && <Alert warning='server' item='create' />} */}
