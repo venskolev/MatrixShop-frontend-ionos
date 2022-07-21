@@ -4,6 +4,7 @@ import Carousel from "react-material-ui-carousel";
 
 function Item({ item }) {
   return (
+
     <div style={{ width: "100%", height: "100%"}}>
       {<img src={item.url} alt=""/>}
       <br />
@@ -13,6 +14,7 @@ function Item({ item }) {
       }}>{item.name}</Button>}
       <br />
       {item.description}
+
     </div>
   );
 }
@@ -21,11 +23,14 @@ export default function HomeCarousel() {
   var items = [
     {
       url: `https://cdn.pixabay.com/photo/2017/02/24/03/35/engagement-ring-2093824_960_720.jpg`,
-      name: "Random Name #1",
+
+      name: "Go to Product #1",
+
       description: "1 - Probably the most random thing you have ever seen!",
     },
     {
       url: `https://cdn.pixabay.com/photo/2017/02/24/03/35/engagement-ring-2093824_960_720.jpg`,
+
       name: "Random Name #2",
       description: "2- Hello World!",
     },
@@ -33,6 +38,7 @@ export default function HomeCarousel() {
       url: `https://cdn.pixabay.com/photo/2017/02/24/03/35/engagement-ring-2093824_960_720.jpg`,
       name: "Random Name #3",
       description: "3 - Hello World!",
+
     },
   ];
 
