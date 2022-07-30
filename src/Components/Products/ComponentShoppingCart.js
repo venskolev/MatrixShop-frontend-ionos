@@ -24,6 +24,8 @@ import Search from "./CartComponent";
 
 
 
+
+
 export default function ProductCard() {
 
   const { products } = useProductContext();
@@ -81,7 +83,6 @@ export default function ProductCard() {
           key={index}
           sx={{ maxWidth: 445, margin: "40px", padding: "20px" }}
         >
-
           <div className="shopping-cart-container">
             <div className="column-1">
               <ImageBase64 data={product.photo} alt="Bild" />
