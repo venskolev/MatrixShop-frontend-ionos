@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 // import { useProductContext } from "../../../Context/ProductContext";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { addToCart } from "../../../redux/action/cartActions";
+import LoginIcon from '@mui/icons-material/Login';
 
 
 
@@ -33,7 +34,7 @@ const Product = ({
   createSuccess,
 }) => {
   const nav = useNavigate();
-  const { token } = useUser();
+  const token = useUser();
   const params = useParams();
   const id = params.productId;
   //  const { addItem, setItems, emptyCart } = useCart();
@@ -85,7 +86,9 @@ const Product = ({
     dispatch(addToCart(productData))
   };
 
-
+  const handleLogin = () => {
+    nav("/login");
+  };
 
 
   const handleBack = () => {
@@ -94,10 +97,10 @@ const Product = ({
   const handleWarenkorp = () => {
     nav("/shoppingcard");
   };
+console.log("Token Product: ", token.user)
 
   return (
   <>
-
     <div>
       <div className="create"> </div>
       <div className="container" style={{ width: 900 }}>
@@ -113,18 +116,27 @@ const Product = ({
             <div className="form-group" style={{ width: 700 }}>
               {description}
 
-            </div>
+            </div><hr />
             <div className="form-group d-flex justify-content-around" style={{ width: 350 }}>
 
               <h4>Price:</h4> <h4 style={{ color: "red" }}>{formatPrice(price)}</h4>
-              <button
+              {token.user ?
+              (<button
                 className="btn btn-success"
                 // value='Submit'
                 type="submit"
                 onClick={handleAddtoCart}
               >
                 <AddShoppingCartIcon /> Jetzt kaufen
-              </button>
+              </button>) : (<button
+                className="btn btn-success"
+                // value='Submit'
+                type="submit"
+                onClick={handleLogin}
+              >
+                <LoginIcon /> Jetzt Login
+              </button>)
+              }
               {/* <button onClick={()=> dispatch(addCoupon())}>Promo Code</button> */}
             </div>
             <div className="form-group">
@@ -137,22 +149,29 @@ const Product = ({
             <div className="btn-row" style={{ padding: "0 50px 0" }}>
               <div className="btn-left">
 
-                <button
+                {token.user ? 
+                (<button
                   className="btn btn-secondary"
                   onClick={handleBack}
                 >
                   <i className="fas fa-arrow-left" /> weiter Einkaufen
-                </button>
+                </button>) : (<button
+                  className="btn btn-secondary"
+                  onClick={handleBack}
+                >
+                  <i className="fas fa-arrow-left" /> Züruck
+                </button>)}
 
               </div>
 
               <div className="btn-middle" />
-              <button
+              {token.user &&
+              (<button
                 className="btn btn-secondary"
                 onClick={handleWarenkorp}
               >
                 Warenkorp <i className="fas fa-arrow-right ml-1" />
-              </button>
+              </button>)}
             </div>
           </div>
         </form>
