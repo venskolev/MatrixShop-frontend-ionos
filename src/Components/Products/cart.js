@@ -1,90 +1,73 @@
-import * as React from "react";
-
-import Card from "@mui/material/Card";
-
-import CardContent from "@mui/material/CardContent";
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import React from 'react';
+// import '../../sass/AdminProducts.scss'
+import "../../sass/ShoppingCart.scss";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-
-import { useProductContext } from "../../Context/ProductContext";
-
-
-import "../../sass/ShoppingCart.scss";
-
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
 
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addToCart } from "../../redux/action/cartActions";
-import { useUser } from "../../Context/UserContext"
-import Search from "./CartComponent";
+import { useUser } from '../../Context/UserContext';
 
+const Cart = ({
+  queryCur,
+  sortType,
+  products,
+  actAttr,
+  activePage,
+  activeProduct,
+}) => {
+  const displayProduct = (
+    queryCur,
+    sortType,
+    products,
+    actAttr,
+    activePage
+  ) => {
+    return activeProduct(queryCur, sortType, products, actAttr).slice(
+      (activePage - 1)
+    );
+  };
 
-
-
-
-
-
-export default function ProductCard() {
-
-  const { products } = useProductContext();
   const nav = useNavigate();
   const dispatch = useDispatch();
-  // const token = useUser();
-
-
-
-
+  const token = useUser();
 
   const handleProduct = (productId) => {
     nav(`/product/${productId}`)
     console.log("Handel:", productId)
   }
-  // const handleAddToCart = () => {
-  //   dispatch(addToCart(products))
-  // }
 
   const ImageBase64 = ({ data }) => (
     <>
-
       {data ? <img alt="Bild" src={data} /> : undefined}
-
     </>
   );
-
-
   const formatPrice = (price) => {
     return new Intl.NumberFormat('de-DE', {
       style: 'currency',
       currency: 'EUR',
     }).format(price);
   };
+console.log("Token Cart",token.user)
   return (
-    <>
-      {/* <nav>
-        <Box
-          sx={{
-            width: 500,
-            height: 45,
-            // maxWidth: '100%',
-            position: "absolute",
-            margin: "-150px 0 0 40px",
-            display: "inline-flex",
-            gap: 1
-          }}
-        >
-          <TextField style={{ width: 400 }} label="Search" id="search" /> */}
-          {/* <Button variant="contained">Search</Button> */}
-        {/* </Box>
-      </nav> */}
-      {/* <Search /> */}
-
-      {products.map(((product, index) => (
-        <Card
-          key={index}
+    <div className='row'>
+          {displayProduct(
+            queryCur,
+            sortType,
+            products,
+            actAttr,
+            activePage,
+            activeProduct
+          ).map(product=> {
+            return (
+              <Card
+          key={products._id}
           sx={{ maxWidth: 445, margin: "40px", padding: "20px" }}
         >
+
           <div className="shopping-cart-container">
             <div className="column-1">
               <ImageBase64 data={product.photo} alt="Bild" />
@@ -140,15 +123,20 @@ export default function ProductCard() {
               <Button className="m-1" variant="outlined" onClick={() => { handleProduct(product._id) }}>
                 Produkt anzeigen
               </Button>
-
-              <Button variant="contained" color="success" onClick={() => { dispatch(addToCart(product)) }}>
+              {!token.user ?
+              (<Button variant="contained" disabled color="success" onClick={() => { dispatch(addToCart(product)) }}>
                 in warenkorb
-              </Button>
-
+              </Button>) : (<Button variant="contained" color="success" onClick={() => { dispatch(addToCart(product)) }}>
+                in warenkorb
+              </Button>)
+              }
             </div>
           </div>
         </Card>
-      )))}
-    </>
+            );
+          })}
+    </div>
   );
-}
+};
+
+export default Cart;

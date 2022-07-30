@@ -4,6 +4,9 @@ import Category from "./Category";
 import "../../sass/Pages.scss";
 import { useUser } from "../../Context/UserContext";
 
+import CartComponent from "../Products/CartComponent";
+
+
 export default function Home() {
   const token = useUser();
   return (
@@ -15,7 +18,8 @@ export default function Home() {
         {token.user ? (<h2 style={{textAlign: "center"}}>Hi! {token.user.name}</h2>) : (<h2>Hallo in unsere Shop</h2>)}
         
       </div>
-      <Category />
+      {/* <Category /> */}
+      <CartComponent />
     </>
   );
 }
