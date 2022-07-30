@@ -75,7 +75,6 @@ export default function ProductCard() {
           {/* <Button variant="contained">Search</Button> */}
         {/* </Box>
       </nav> */}
-      {/* <Search /> */}
       {products.map(((product, index) => (
         <Card
           key={index}
