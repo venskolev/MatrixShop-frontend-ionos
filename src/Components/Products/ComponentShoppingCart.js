@@ -24,12 +24,15 @@ import Search from "./CartComponent";
 
 
 
+
+
 export default function ProductCard() {
 
   const { products } = useProductContext();
   const nav = useNavigate();
   const dispatch = useDispatch();
   // const token = useUser();
+
 
 
 
@@ -76,12 +79,12 @@ export default function ProductCard() {
         {/* </Box>
       </nav> */}
       {/* <Search /> */}
+
       {products.map(((product, index) => (
         <Card
           key={index}
           sx={{ maxWidth: 445, margin: "40px", padding: "20px" }}
         >
-
           <div className="shopping-cart-container">
             <div className="column-1">
               <ImageBase64 data={product.photo} alt="Bild" />
