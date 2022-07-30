@@ -1,6 +1,6 @@
 import React from 'react';
 // import '../../sass/AdminProducts.scss'
-import "../../sass/ShoppingCart.scss";
+import "../../../../sass/ShoppingCart.scss";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
@@ -8,8 +8,8 @@ import CardContent from "@mui/material/CardContent";
 
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { addToCart } from "../../redux/action/cartActions";
-import { useUser } from '../../Context/UserContext';
+import { addToCart } from "../../../../redux/action/cartActions";
+import { useUser } from '../../../../Context/UserContext';
 
 const Cart = ({
   queryCur,
@@ -31,9 +31,13 @@ const Cart = ({
     );
   };
 
+  console.log(displayProduct)
+
   const nav = useNavigate();
   const dispatch = useDispatch();
   const token = useUser();
+
+console.log("Token Cart",token.user);
 
   const handleProduct = (productId) => {
     nav(`/product/${productId}`)
@@ -51,19 +55,17 @@ const Cart = ({
       currency: 'EUR',
     }).format(price);
   };
-console.log("Token Cart",token.user)
+
+  const filtered = products.filter(product => {
+    return product.category === 'Damen';
+  });
+  console.log(filtered)
+
   return (
     <div className='row'>
-          {displayProduct(
-            queryCur,
-            sortType,
-            products,
-            actAttr,
-            activePage,
-            activeProduct
-          ).map(product=> {
+          {filtered.map(product=> {
             return (
-
+              
               <Card
           key={products._id}
           sx={{ maxWidth: 445, margin: "40px", padding: "20px" }}
