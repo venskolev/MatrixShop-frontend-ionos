@@ -3,12 +3,12 @@ import Carousel from "../../Components/Carousel/Carousel";
 import Category from "./Category";
 import "../../sass/Pages.scss";
 import { useUser } from "../../Context/UserContext";
-import CartComponent from "../Products/CartComponent";
-
-
-
 
 import CartComponent from "../Products/CartComponent";
+
+
+
+
 
 
 export default function Home() {
