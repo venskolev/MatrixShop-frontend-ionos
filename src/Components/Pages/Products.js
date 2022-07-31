@@ -10,6 +10,7 @@ import { useUser } from "../../Context/UserContext";
 
 
 
+
 export default function Products() {
 const token = useUser();
 console.log("Token Pages: ", token.user)
