@@ -1,13 +1,16 @@
 import React from "react";
-import Footer from "../Footer/Footer";
+import ShoopingCart from "../Products/ShoopingCart";
+
 
 export default function ShoppingCart() {
   return (
     <>
     <div className="category">
-      <h1>Warenkorb</h1>
+        <h2>Warenkorb</h2>
+        <hr className="bg-success"/>
+        <ShoopingCart/>
+
     </div>
-    <Footer />
     </>
   );
 }

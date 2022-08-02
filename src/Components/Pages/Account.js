@@ -1,5 +1,6 @@
 import React from "react";
-import Footer from "../Footer/Footer";
+import ProductCart from "../Products/Warenkorb";
+
 import MyAccount from "../Users/Account";
 
 export default function Account() {
@@ -7,9 +8,10 @@ export default function Account() {
     <>
     <div className="account">
       <h1>Deins</h1>
-      <MyAccount />
+        {/* <MyAccount /> */}
+        <ProductCart/>
     </div>
-    <Footer />
+
     </>
   );
 }

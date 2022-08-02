@@ -1,53 +1,154 @@
 import * as React from "react";
-import { Link as RouterLink } from 'react-router-dom';
+
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
+
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
-import IconButton from "@mui/material/IconButton";
-import HoverRating from "./Rating";
-import "../../sass/ShoppingCart.scss"
+import { useProductContext } from "../../Context/ProductContext";
 
-export default function MediaCard() {
-  // const [value, setValue] = React.useState(2);
+
+import "../../sass/ShoppingCart.scss";
+
+
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { addToCart } from "../../redux/action/cartActions";
+import { useUser } from "../../Context/UserContext"
+import Search from "./CartComponent";
+
+
+
+
+
+
+
+export default function ProductCard() {
+
+  const { products } = useProductContext();
+  const nav = useNavigate();
+  const dispatch = useDispatch();
+  // const token = useUser();
+
+
+
+
+
+  const handleProduct = (productId) => {
+    nav(`/product/${productId}`)
+    console.log("Handel:", productId)
+  }
+  // const handleAddToCart = () => {
+  //   dispatch(addToCart(products))
+  // }
+
+  const ImageBase64 = ({ data }) => (
+    <>
+
+      {data ? <img alt="Bild" src={data} /> : undefined}
+
+    </>
+  );
+
+
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('de-DE', {
+      style: 'currency',
+      currency: 'EUR',
+    }).format(price);
+  };
   return (
-    <Card sx={{ maxWidth: 445, margin: "40px", padding: "20px" }}>
-      <CardMedia
-        component="img"
-        height="140"
-        image="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
-        alt="green iguana"
-      />
-      <CardContent>
-        <Typography className="shopping-cart-container__title" gutterBottom variant="h5" component="div">
-          {/* {Title} */}
-          Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
-        </Typography>
-        <Typography variant="subtitle1" color="text.secondary" component="div">
-          {/* {Category} */}
-          Men's clothing
-          <h2 style={{color: "red"}}>200 €</h2>
-          <hr />
-        </Typography>
-        <Typography variant="body2" className="shopping-cart-container__item" component="p">
-          {/* {Description} */}
-          Your perfect pack for everyday use and walks in the forest. Stash your
-          laptop (up to 15 inches) in the padded sleeve, your everyday
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small"><AddShoppingCartIcon /></Button>
-        <Button size="small">Wunschzettel</Button>
-        <Button size="small" component={RouterLink} to="/products">Weiter</Button>
-        <IconButton aria-label="add to favorites"></IconButton>
-      </CardActions>
-      <CardContent>
-        <HoverRating />
-      </CardContent>
-    </Card>
+    <>
+      {/* <nav>
+        <Box
+          sx={{
+            width: 500,
+            height: 45,
+            // maxWidth: '100%',
+            position: "absolute",
+            margin: "-150px 0 0 40px",
+            display: "inline-flex",
+            gap: 1
+          }}
+        >
+          <TextField style={{ width: 400 }} label="Search" id="search" /> */}
+          {/* <Button variant="contained">Search</Button> */}
+        {/* </Box>
+      </nav> */}
+      {/* <Search /> */}
+
+      {products.map(((product, index) => (
+        <Card
+          key={index}
+          sx={{ maxWidth: 445, margin: "40px", padding: "20px" }}
+        >
+          <div className="shopping-cart-container">
+            <div className="column-1">
+              <ImageBase64 data={product.photo} alt="Bild" />
+              <CardContent>
+                <Typography
+                  className="shopping-cart-container__title"
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                >
+                  {/* {Title} */}
+                  {product.productName}
+                </Typography>
+                <Typography
+                  className="shopping-cart-container__cat"
+                  variant="subtitle1"
+                  color="text.secondary"
+                  component="div"
+                >
+                  {/* {Category} */}
+
+                  <h4>{product.category}</h4>
+                  <h4>{formatPrice(product.price)}</h4>
+                  <h5 style={{ color: "red" }}><h4>10% Rabatt Neueröffnung</h4>Statt: <h5 style={{ textDecorationLine: 'line-through', textDecorationStyle: 'solid' }}>{formatPrice(((product.price) * 10 / 100) + (product.price))}</h5></h5>
+
+                  <hr />
+                </Typography>
+                <Typography
+                  variant="body2"
+                  className="shopping-cart-container__item"
+                  component="p"
+                >
+                  {/* {Description} */}
+                  {product.description}
+                </Typography>
+              </CardContent>
+
+              {/* <CardActions>
+
+                <Button size="small">
+                  <AddShoppingCartIcon />
+                </Button>
+                <Button size="small">Wunschzettel</Button>
+                <Button size="small" component={RouterLink} to="/products">
+                  Weiter
+                </Button>
+                <IconButton aria-label="add to favorites"></IconButton>
+              </CardActions>
+              <CardContent>
+                <HoverRating />
+
+              </CardContent> */}
+              <Button className="m-1" variant="outlined" onClick={() => { handleProduct(product._id) }}>
+                Produkt anzeigen
+              </Button>
+
+              <Button variant="contained" color="success" onClick={() => { dispatch(addToCart(product)) }}>
+                in warenkorb
+              </Button>
+
+            </div>
+          </div>
+        </Card>
+      )))}
+    </>
   );
 }

@@ -5,33 +5,47 @@ import jwt_decode from "jwt-decode";
 const UserContext = createContext();
 
 export const UserContextProvider = ({ children }) => {
+  
   const [token, setToken] = useState(() => {
+    
     const token = localStorage.getItem("token");
+  
     return token || null;
   });
+  // const decoded = jwt_decode(token);
+    const [errMsg, setErrMsg] = useState(false);
 
   useEffect(() => {
-    let timeoutHandle = 0;
+    // let timeoutHandle = 0;
     if (token) {
       localStorage.setItem("token", token);
-      const decoded = jwt_decode(token);
-      timeoutHandle = setTimeout(() => {
-        setToken(null);
-      }, decoded.exp * 1000 - Date.now());
+
+      // timeoutHandle = setTimeout(() => {
+      //   setToken(null);
+      //   console.log("timeoutHandle:")
+      // }, 100000);
+
     } else {
       localStorage.removeItem("token");
+      
     }
-    return () => {
-      if (timeoutHandle !== 0) {
-        clearTimeout(timeoutHandle);
-      }
-    };
+    // return () => {
+    //   if (timeoutHandle !== 0) {
+    //     clearTimeout(timeoutHandle);
+    //   }
+    // };
+    
   }, [token]);
+
+console.log("UserContext Token:", token)
+
+      
 
   const signIn = async (email, password) => {
     try {
-      const response = await axios.get(
+      const response = await axios.post(
         `${process.env.REACT_APP_API}/users/signin`,
+
         {
           email,
           password,
@@ -41,11 +55,13 @@ export const UserContextProvider = ({ children }) => {
       setToken(token);
     } catch (err) {
       console.log(err);
+      setErrMsg(true);
     }
   };
 
   const signUp = async (firstName, lastName, email, password) => {
     try {
+
       const response = await axios.post(
         `${process.env.REACT_APP_API}/users/signup`,
         {
@@ -62,14 +78,36 @@ export const UserContextProvider = ({ children }) => {
     }
   };
 
+   const [roles, setRole] = useState([]);
+
+    const userAdmin = async () => {
+    try {
+      const response = await axios.get(`${process.env.REACT_APP_API}/users`);
+      // const role = response.data;
+      // setRole(response.data);
+      // console.log(response)
+      const { token } = response.data;
+      setToken(token);
+      setRole(response.data)
+
+    } catch (err) {
+      console.log(err.message)
+    }
+  }
+
+
   const signOut = () => {
     setToken(null);
   };
 
   let user = null;
+  let role = roles;
   if (token) {
     user = jwt_decode(token);
+    role = jwt_decode(token)
   }
+  
+
 
   return (
     <UserContext.Provider
@@ -79,6 +117,9 @@ export const UserContextProvider = ({ children }) => {
         signIn,
         signUp,
         signOut,
+        userAdmin,
+        role,
+        errMsg
       }}
     >
       {children}

@@ -1,13 +1,14 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useUser } from "../../Context/UserContext";
+import { useNavigate } from 'react-router-dom';
 
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
+//import FormControlLabel from "@mui/material/FormControlLabel";
+//import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -16,31 +17,71 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-// function Copyright(props) {
-//   return (
-//     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-//       {'Copyright © '}
-//       <Link color="inherit" href="/">
-//         Your Website
-//       </Link>{' '}
-//       {new Date().getFullYear()}
-//       {'.'}
-//     </Typography>
-//   );
-// }
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Zoom } from 'react-toastify';
+
 
 const theme = createTheme();
 
-export const LoginForm =() => {
-  const { signIn } = useUser();
+export const LoginForm = () => {
+  const nav = useNavigate();
+
+  const emailRef = useRef();
+
+
+  const { signIn, user, errMsg } = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const toastId = useRef(null);
+
+ 
+
+  const CloseButton = ({ closeToast }) => (
+    
+    <i
+      className="material-icons"
+      onClick={closeToast}
+    >
+      OK.
+    </i>
+  );
+
+  useEffect(() => {
+    emailRef.current.focus();
+  }, [])
+
+  useEffect(() => {
+    if (user) {
+      console.log("IsUser")
+      if (user.role === 1) {
+        console.log("User is Admin")
+        nav('/admin')
+      } else {
+        nav('/account');
+      }
+    }
+    if (errMsg === true) {
+      console.log(errMsg)
+
+      if (!toast.isActive(toastId.current)) {
+        toastId.current = toast.error("E-Mail-Adresse / Passwort falsch.  Bitte versuchen es erneut.", {
+          autoClose: false,
+          position: toast.POSITION.BOTTOM_CENTER,
+          theme: "colored"
+        })
+      }
+    }
+  }, [user, nav, errMsg])
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      email: data.get("email"),
-      password: data.get("password"),
+      email: data.get('email'),
+      password: data.get('password')
     });
   };
 
@@ -60,11 +101,11 @@ export const LoginForm =() => {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Anmelden
+            Einloggen
           </Typography>
           <Box
             component="form"
-             onSubmit={handleSubmit}
+            onSubmit={handleSubmit}
             noValidate
             sx={{ mt: 1 }}
           >
@@ -73,10 +114,11 @@ export const LoginForm =() => {
               required
               fullWidth
               id="email"
-              label="Email Address"
+              ref={emailRef}
+              label="E-Mail Addresse"
               name="email"
               value={email}
-              autoComplete="email"
+              autoComplete="off"
               autoFocus
               onChange={(e) => {
                 setEmail(e.target.value);
@@ -87,19 +129,19 @@ export const LoginForm =() => {
               required
               fullWidth
               name="password"
-              label="Password"
+              label="Kennwort"
               type="password"
               id="password"
               value={password}
-              autoComplete="current-password"
+             // autoComplete="current-password"
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
             />
-            <FormControlLabel
+            {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
-            />
+            /> */}
             <Button
               type="submit"
               fullWidth
@@ -109,23 +151,26 @@ export const LoginForm =() => {
                 signIn(email, password);
               }}
             >
-              Login
+              Einloggen
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
+                {/* <Link href="#" variant="body2">
                   Forgot password?
-                </Link>
+                </Link> */}
               </Grid>
               <Grid item>
-                <Link href="/signup" variant="body2">
+                <Link href="/signup" variant="body">
                   {"Du hast kein Konto? Anmeldung"}
                 </Link>
               </Grid>
             </Grid>
           </Box>
         </Box>
-        {/* <Copyright sx={{ mt: 5 }} /> */}
+        <ToastContainer
+         closeButton={CloseButton} 
+         transition={Zoom} 
+         style={{ width: "300px", bottom: "25rem" }} />
       </Container>
     </ThemeProvider>
   );

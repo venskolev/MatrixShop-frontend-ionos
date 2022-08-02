@@ -1,16 +1,34 @@
 import React from "react";
-import Footer from "../Footer/Footer";
-import Product from "../Products/Products";
+import  ShoppingCard from "../Products/Cart/ShoppingCart";
+//import ProductsCard from "../Products/ProductsCard";
+import Warenkorb from "./ShoppingCart"
+
+
+import { useUser } from "../../Context/UserContext";
+
+
+
+
+
+
 
 export default function Products() {
+const token = useUser();
+console.log("Token Pages: ", token.user)
+
   return (
     <>
-      <div className="products" style={{marginTop: "150px"}}>
-        <h1>Products</h1>
+      <div className="products-container" style={{ marginTop: "150px" }}>
       </div>
+      {/* <ProductsCart /> */}
+      <ShoppingCard />
+{token.user &&
+      (<><hr />
+    <div className="mt-5 w-auto">
+      <Warenkorb />
+      </div></>)
+      }
 
-      <Product />
-      <Footer />
     </>
   );
 }
