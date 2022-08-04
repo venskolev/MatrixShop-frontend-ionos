@@ -68,7 +68,7 @@ console.log("Token Cart",token.user);
               
               <Card
           key={products._id}
-          sx={{ maxWidth: 445, margin: "40px", padding: "20px" }}
+          sx={{ overflow: "visible", maxWidth: 445, padding: "20px", marginBottom: 3, marginRight: 3 }}
         >
 
           <div className="shopping-cart-container">
