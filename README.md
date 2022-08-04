@@ -1,6 +1,6 @@
-HEAD
+
 Final Project -- Ecommerce website with the MERN stack with React Context API
-===
+
 Full Stack Developer
 ## DCI 
 
@@ -38,25 +38,4 @@ Full Stack Developer
   ```
 
 
-
-## Directory Hierarchy
-```
-```
-## Code Details
-
-### Tested Platform
-
-### Hyper parameters
-
-## References
-
-  
-## License
-
-## Citing
-If you use xxx,please use the following us entry.
-```
-```
-=======
-# frontend
 
