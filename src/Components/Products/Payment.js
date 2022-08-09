@@ -239,6 +239,7 @@ const Payment = () => {
                     >
                       <FaBitcoin style={{ fontSize: 30, width: 60 }} />
 
+
                     </Button>
                   </Box>
                 </Box>
