@@ -14,7 +14,7 @@ import AddCardIcon from '@mui/icons-material/AddCard';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { FaCcAmex, FaCcVisa, FaCcMastercard, FaCcPaypal } from 'react-icons/fa';
+import { FaCcAmex, FaCcVisa, FaCcMastercard, FaCcPaypal, FaBitcoin } from 'react-icons/fa';
 import { SiKlarna } from 'react-icons/si'
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -223,6 +223,15 @@ const Payment = () => {
 
                     <Typography component="h1" variant="h5">
                       Klarna bezahlen
+                    </Typography>
+                    <Button
+                      onClick={handleSubmit}
+                      size='large'
+                    >
+                      <SiKlarna style={{ fontSize: 30, backgroundColor: "#e5a492", width: 60 }} />
+                    </Button>
+                    <Typography component="h1" variant="h5">
+                      Bitcoin bezahlen
                     </Typography>
                     <Button
                       onClick={handleSubmit}
