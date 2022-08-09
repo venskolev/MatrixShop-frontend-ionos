@@ -238,6 +238,7 @@ const Payment = () => {
                       size='large'
                     >
                       <FaBitcoin style={{ fontSize: 30, backgroundColor: "#e5a492", width: 60 }} />
+
                     </Button>
                   </Box>
                 </Box>
