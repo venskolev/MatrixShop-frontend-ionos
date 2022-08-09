@@ -127,9 +127,9 @@ const Products = ({
             onChange={e => handleChange(e)}
           />
           {/* <input type='submit' value='Search' /> */}
-          <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> </form>
+          <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Suchen</button> </form>
       </div>
-      <nav className='navbar navbar-light bg-light mb-2'><strong className='navbar-brand'><h3 className='danger'>Products administration</h3></strong>   </nav>
+      <nav className='navbar navbar-light bg-light mb-2'><strong className='navbar-brand'><h3 className='danger'>Produktverwaltung</h3></strong>   </nav>
       <div>
         {isLoading ? (
           <Loading />
@@ -156,13 +156,13 @@ const Products = ({
         className='btn btn-success btn-lg ml-5'
         onClick={e => handleCreate()}
       >
-        Create new Product
+        Produkt hinzufügen
       </button>
     </div>
     </>
     ) : (
       <div>
-        <h1>Only Admin's</h1>
+        <h1>Nur für Admins</h1>
       </div>
     )
   ) : (

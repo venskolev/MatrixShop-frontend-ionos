@@ -104,24 +104,24 @@ const CreateProduct = ({
               <div>
 
                 <div className='container'>
-                  <h1>Create Product</h1>
+                  <h1>Produkt hinzufügen</h1>
                   <form onSubmit={e => handleCreate(e)}>
                     <small className='form-text text-muted'>
-                      Blank with * is reuiqred
+                    Leerzeichen mit * ist erforderlich
                     </small>
                     <div className='form-group'>
-                      * Product Name:{' '}
+                      * Produkt Name:{' '}
                       <input
                         className='form-control'
                         name='productName'
                         value={productName}
                         onChange={e => handleChange(e)}
-                        placeholder='Product Name'
+                        placeholder='Produkt Name'
                       />
                       {!productName && <Alert warning='empty' item='productName' />}
                     </div>
                     <div className='form-group'>
-                      * Category:{' '}
+                      * Kategorie:{' '}
                       <input
                         className='form-control'
                         name='category'
@@ -132,7 +132,7 @@ const CreateProduct = ({
                       {!category && <Alert warning='empty' item='category' />}
                     </div>
                     <div className='form-group'>
-                      * Description:{' '}
+                      * Beschreibung:{' '}
                       <textarea
                         className='form-control'
                         name='description'
@@ -147,7 +147,7 @@ const CreateProduct = ({
 
                     </div>
                     <div className='form-group'>
-                      * Price:{' '}
+                      * Preis:{' '}
                       <input
                         className='form-control'
                         name='price'
@@ -174,7 +174,7 @@ const CreateProduct = ({
                       <ImageBase64 data={photo_base64} alt='Bild' />
                       {/* <Upload /> */}
                       <small className='form-text text-muted'>
-                        JPEG, maximum resolution of 700px × 700px, maximum size 125kB
+                      JPEG, maximale Auflösung von 700px × 700px, maximale Größe 125kB
                       </small>
                     </div>
                     {/* {error && <Alert warning='server' item='create' />} */}
@@ -192,14 +192,14 @@ const CreateProduct = ({
                         //     price
                         //   )
                         // }
-                        >Add Product
+                        >Produkt hinzufügen
                         </button>
                       </div>
 
                       <div className='btn-middle' />
 
                       <div className='btn-right'>
-                        <button className='btn btn-secondary' onClick={handleBack}>Back
+                        <button className='btn btn-secondary' onClick={handleBack}>Zurück
                         </button>
                       </div>
                     </div>
@@ -212,7 +212,7 @@ const CreateProduct = ({
         </>
       ) : (
         <div>
-          <h1>Only Admin's</h1>
+          <h1>Nur für Admins</h1>
         </div>
       )
     ) : (

@@ -136,14 +136,14 @@ const EditProduct = ({
             <Loading />
           ) : (
             <div>
-              <div className="create">Edit Product </div>
+              <div className="create">Produkt bearbeiten </div>
               <div className="container">
                 <form onSubmit={(e) => handleEdit(e)}>
                   <small className="form-text text-muted">
-                    Blank with * is reuiqred
+                  Leerzeichen mit * ist erforderlich
                   </small>
                   <div className="form-group">
-                    * Product Name: - {productName}
+                    * Produkt Name: - {productName}
                     <input
                       className="form-control"
                       name="productName"
@@ -156,7 +156,7 @@ const EditProduct = ({
                     )}
                   </div>
                   <div className="form-group">
-                    * Category: - {category}
+                    * Kategorie: - {category}
                     <input
                       className="form-control"
                       name="category"
@@ -167,7 +167,7 @@ const EditProduct = ({
                     {!category && <Alert warning="empty" item="category" />}
                   </div>
                   <div className="form-group">
-                    * Description:{" "}
+                    * Beschreibung:{" "}
                     <textarea
                       className="form-control"
                       name="description"
@@ -181,7 +181,7 @@ const EditProduct = ({
                     )}
                   </div>
                   <div className="form-group">
-                    * Price: - {price}
+                    * Preis: - {price}
                     <input
                       className="form-control"
                       name="price"
@@ -203,8 +203,8 @@ const EditProduct = ({
                     <ImageBase64 data={photo} alt="Bild" />
                     {/* <Upload /> */}
                     <small className="form-text text-muted">
-                      JPEG, maximum resolution of 700px × 700px, maximum size
-                      125kB
+                    JPEG, maximale Auflösung von 700px × 700px, maximale Größe
+                       125kB
                     </small>
                   </div>
                   <div className="btn-row">
@@ -222,7 +222,7 @@ const EditProduct = ({
                         //   )
                         // }
                       >
-                        <i className="fas fa-arrow-down" /> Save Changes
+                        <i className="fas fa-arrow-down" /> Änderungen speichern
                       </button>
                     </div>
                     <div className="btn-middle" />
@@ -232,7 +232,7 @@ const EditProduct = ({
                         className="btn btn-secondary"
                         onClick={handleBack}
                       >
-                        <i className="fas fa-arrow-left" /> Back
+                        <i className="fas fa-arrow-left" /> Zurück
                       </button>
                     </div>
                   </div>
@@ -245,7 +245,7 @@ const EditProduct = ({
       </>
     ) : (
       <div>
-        <h1>Only Admin's</h1>
+        <h1>Nur für Admins</h1>
       </div>
     )
   ) : (
