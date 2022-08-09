@@ -73,7 +73,7 @@ console.log("Token Cart",token.user);
 
           <div className="shopping-cart-container">
             <div className="column-1">
-              <ImageBase64 data={product.photo} alt="Bild" />
+              <a href={`/product/${product._id}`}><ImageBase64 data={product.photo} alt="Bild" /></a>
               <CardContent>
                 <Typography
                   className="shopping-cart-container__title"
