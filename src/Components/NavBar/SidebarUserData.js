@@ -21,7 +21,7 @@ export const SidebarUserData = [
   //   cName: "nav-text",
   // },
   {
-    title: "Contact",
+    title: "Kontakt",
     path: "/contact",
     icon: <AiIcons.AiOutlineContacts />,
     cName: "nav-text",
@@ -36,7 +36,7 @@ export const SidebarUserData = [
 ];
 export const Login = [
   {
-    title: "Login",
+    title: "Einlogin",
     path: "/login",
     icon: <MdIcons.MdLogin />,
     cName: "nav-text"
@@ -46,7 +46,7 @@ export const Login = [
 
 export const Logout = [
    {
-    title: "Logout",
+    title: "Abmelden",
     path: "/logout",
     icon: <MdIcons.MdLogin />,
     cName: "nav-text"

@@ -58,7 +58,7 @@ export const AdminMenu = [
     cName: "nav-text-admin"
   },
   {
-    title: "AddProduct",
+    title: "Produkt einfügen",
     path: "/admin/createproduct",
     icon: <ShoppingCartCheckoutIcon />,
     cName: "nav-text-admin"
