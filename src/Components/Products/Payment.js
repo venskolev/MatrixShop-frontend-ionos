@@ -237,7 +237,8 @@ const Payment = () => {
                       onClick={handleSubmit}
                       size='large'
                     >
-                      <SiKlarna style={{ fontSize: 30, backgroundColor: "#e5a492", width: 60 }} />
+                      <FaBitcoin style={{ fontSize: 30, backgroundColor: "#e5a492", width: 60 }} />
+
                     </Button>
                   </Box>
                 </Box>
