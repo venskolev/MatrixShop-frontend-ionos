@@ -170,6 +170,15 @@ export default function RecipeReviewCard() {
               </CardContent>
             </Collapse>
           </Card>
+            {/*  <Box>
+              <a href="https://www.buymeacoffee.com/v.kolev"
+              target="_blank"
+              rel="noreferrer"
+              >
+                <img src="https://img.buymeacoffee.com/button-api/?text=Kauf mir einen Kaffee&emoji=☕&slug=v.kolev&button_colour=00a7b3&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" />
+                </a>
+              </Box>
+            */}
         </div>
         {/* Orhan Kadirov */}
 
