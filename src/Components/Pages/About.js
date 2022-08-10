@@ -221,7 +221,6 @@ Das Programmieren ist meine große Leidenschaft. Ich führe seit 2017 einen erfo
                 Damals habe ich mit wordpress angefangen dan 2018 mit python/django.
                 </Typography>
                 {/* <Typography>
-                  
                 </Typography> */}
               </CardContent>
             </Collapse>
