@@ -103,7 +103,6 @@ const Product = ({
   const handleWarenkorp = () => {
     nav("/shoppingcard");
   };
-
   const [rating, setRating] = useState(2);
 
   const handleAddCommentar = (e) => {
@@ -150,7 +149,6 @@ const Product = ({
 
               </div><hr />
               <div className="form-group d-flex justify-content-around" style={{ width: 350 }}>
-
                 <h4>Price:</h4> <h4 style={{ color: "red" }}>{formatPrice(price)}</h4>
                 {token.user ?
                   (<button
