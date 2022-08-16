@@ -76,11 +76,14 @@ export const initProduct = () => dispatch => {
       description: '',
       price: '',
       photo: '',
+      comments: [],
       createSuccess: false,
       error: null
     }
   });
 };
+
+
 
 const editProductStart = () => {
   return {
@@ -215,10 +218,66 @@ export const getProduct = payload => dispatch => {
 
   axios.get(`${process.env.REACT_APP_API}/products/product/${payload.id}`, payload.productData, config)
     .then(res => {
-      const { _id, productName, category, description, price, photo } = res.data;
-      const productData = { _id, productName, category, description, price, photo };
+      const { _id, productName, category, description, price, photo, comments } = res.data;
+      const productData = { _id, productName, category, description, price, photo, comments };
+      
       dispatch(getProductSuccess(productData));
       payload.setProductData(productData);
     })
     .catch(err => dispatch(getProductError(err)));
 };
+
+const createCommentStart = () => {
+  return {
+    type: 'CREATE_COMMENT_START',
+    payload: {}
+  };
+};
+const createCommentSuccess = productComment=> {
+  return {
+    type: 'CREATE_COMMENT_SUCCESS',
+    payload: productComment
+  };
+};
+
+const createCommentError = err => {
+  return {
+    type: 'CREATE_COMMENT_ERROR',
+    payload: { error: err }
+  };
+};
+
+export const createComment = payload => dispatch => {
+  dispatch(createCommentStart());
+console.log("createComment:", payload.productComment);
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': payload.token
+    }
+  };
+  
+  console.log("Redux IDComment:", payload.id)
+  axios
+    .post(`${process.env.REACT_APP_API}/comments/add/${payload.id}`, payload.productComment, config)
+    // .then(res => dispatch(createCommentSuccess(res.data)))
+    .then(res => {
+      dispatch(createCommentSuccess(res.data));
+      console.log("Product Comment",res.data);
+      
+      payload.initComment();
+    })
+    .catch(err => dispatch(createCommentError(err)));
+};
+export const initComment = () => dispatch => {
+  dispatch({
+    type:'INIT_COMMENT',
+    payload: {
+      author: "",
+      text: "",
+      timestamp: "",
+      createSuccess: false,
+      error: null
+    }
+  })
+}
