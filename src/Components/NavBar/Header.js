@@ -160,7 +160,7 @@ export default function Header() {
           className: menuButton,
         }}
       >
-        Login
+        Einlogen
       </Button>) : (
         <>
           <Button
@@ -199,7 +199,7 @@ export default function Header() {
             onClick={logout}
             className={menuButton}
           >
-            Logout
+            Abmelden
           </Button>
 
         </>

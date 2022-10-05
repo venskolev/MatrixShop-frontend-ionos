@@ -52,22 +52,22 @@ const Table = ({
         <thead className='thead-dark'>
           <tr>
             <th scope='col' id='productName' onClick={e => handleSort(e)}>
-              Product Name {showOrder('productName')}
+              Produkt Name {showOrder('productName')}
             </th>
             <th scope='col' id='category' onClick={e => handleSort(e)}>
-              Products Category {showOrder('category')}
+              Produkten Kategorien {showOrder('category')}
             </th>
             <th scope='col' id='descrition' onClick={e => handleSort(e)}>
-              Description {showOrder('description')}
+              Beschreibung {showOrder('description')}
             </th>
             <th scope='col' id='price' onClick={e => handleSort(e)}>
-              Price in Euro {showOrder('price')}
+              Preis in Euro {showOrder('price')}
             </th>
             <th scope='col' id='photo' onClick={e => handleSort(e)}>
               Bild {showOrder('photo')}
             </th>
-            <th scope='col'>Edit</th>
-            <th scope='col'>Delete</th>
+            <th scope='col'>Bearbeiten</th>
+            <th scope='col'>Löschen</th>
           </tr>
         </thead>
 
@@ -106,7 +106,7 @@ const Table = ({
                     className='btn btn-outline-primary btn-sm'
                     onClick={e => handleEdit(products._id)}
                   >
-                    <i className='fas fa-pen' /> Edit
+                    <i className='fas fa-pen' /> Bearbeiten
                   </button>
                 </td>
                 <td>
@@ -114,7 +114,7 @@ const Table = ({
                     className='btn btn-outline-danger btn-sm'
                     onClick={e => handleDelete(products._id)}
                   >
-                    <i className='fas fa-trash' /> Delete
+                    <i className='fas fa-trash' /> Löschen
                   </button>
                 </td>
               </tr>

@@ -20,7 +20,7 @@ export default function SplitButton() {
           <Nav>
             <NavDropdown 
               id="dropdown-dark-example"
-              title="Category"
+              title="Kategorie"
               menuVariant="dark"
             >
               <NavDropdown.Item href="/category/damen">Damen</NavDropdown.Item>

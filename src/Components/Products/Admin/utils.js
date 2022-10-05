@@ -6,7 +6,7 @@ export const Loading = () => {
     <div className='loading'>
       <i className='fas fa-spinner' style={{weight: 450}}/>
       <Spinner />
-      <h1>Loading...</h1>
+      <h1>Wird geladen... bitte warten etwas!</h1>
     </div>
   );
 };

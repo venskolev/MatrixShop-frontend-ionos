@@ -1,21 +1,16 @@
 const initState = {
-  productName: '',
-  category: '',
-  description: '',
-  price: '',
-  photo: '',
   comments: [],
   error: null,
   isLoading: false,
   createSuccess: false
 };
 
-const createProduct = (state = initState, action) => {
+const createComment = (state = initState, action) => {
   const { type, payload } = action;
   switch (type) {
-    case 'CREATE_PRODUCT_START':
+    case 'CREATE_COMMENT_START':
       return { ...state, isLoading: true };
-    case 'CREATE_PRODUCT_SUCCESS':
+    case 'CREATE_COMMENT_SUCCESS':
       return {
         ...state,
         ...payload,
@@ -23,13 +18,13 @@ const createProduct = (state = initState, action) => {
         createSuccess: true,
         error: null 
       };
-    case 'CREATE_PRODUCT_ERROR':
+    case 'CREATE_COMMENT_ERROR':
       return { ...state, ...payload, isLoading: false };
-    case 'INIT_PRODUCT':
+    case 'INIT_COMMENT':
       return { ...state, ...payload, error: null };
     default:
       return state;
   }
 };
 
-export default createProduct;
+export default createComment;
